@@ -2,6 +2,10 @@ var board;
 var score = 0;
 var rows = 4;
 var columns = 4;
+var gameActive = false;
+
+document.getElementById("cs26_body").addEventListener("mouseenter", () => {gameActive=true;});
+document.getElementById("cs26_body").addEventListener("mouseleave", () => {gameActive=false;});
 
 window.onload = function() {
     setGame();
@@ -45,7 +49,10 @@ function updateTile(tile, num) {
     }
 }
 
-document.addEventListener('keyup', (e) => {
+document.addEventListener('keydown', (e) => {
+	if(!gameActive)
+		return;
+	e.preventDefault();
     if (e.code == "ArrowLeft") {
         slideLeft();
         setTwo();
