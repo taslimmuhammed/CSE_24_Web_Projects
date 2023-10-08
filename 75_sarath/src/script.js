@@ -28,13 +28,13 @@ function createNoteElement(id, content) {
   });
 
   element.addEventListener("dblclick", () => {
-    const doDelete = confirm(
+    /*const doDelete = confirm(
       "Are you sure you wish to erase your haunting thoughts? Are you really resoleved it"
-    );
+    );*/
 
-    if (doDelete) {
+    /*if (doDelete) {*/
       deleteNote(id, element);
-    }
+    //}
   });
 
   return element;
