@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="expense-tracker">
+        <h1 class="cs62_h1">Expense Tracker</h1>
+        <div class="expense-form">
+            <label for="expense-description">Description:</label>
+            <input type="text" id="expense-description" placeholder="Enter a description" class="cs62_input">
+
+            <label for="expense-amount">Amount (₹):</label>
+            <input type="number" id="expense-amount" placeholder="Enter the amount" class="cs62_input">
+
+            <button id="add-expense" class="cs62-button">Add Expense</button>
+        </div>
+
+        <div class="expense-list">
+            <h2 class="cs62_h2">Expense List</h2>
+            <ul id="expenses" class="cs62_ul"></ul>
+            <p>Total Expenses (₹): <span id="total-expenses" class="cs62_span">0</span></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.cs18_body {
+    font-family: Arial, sans-serif;
+    background-color:plum;
+}
+
+.cs18_converter {
+    width: 300px;
+    color:violet;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:mistyrose;
+}
+
+.cs18_label {
+    font-weight: bold;
+}
+
+.cs18_amount[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.cs18_button {
+    background-color:violet;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cs18_button:hover {
+    background-color: #0056b3;
+}

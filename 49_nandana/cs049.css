@@ -1,0 +1,44 @@
+.cs049_body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.cs049_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:dimgrey;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(6, 6, 6, 0.2);
+}
+
+.cs049_hand {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.cs049_score {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cs049_button {
+    background-color:white;
+    color: rgb(14, 13, 13);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.cs049_button:hover {
+    background-color:greenyellow;
+}
+
+.cs049_message {
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold; 
+}

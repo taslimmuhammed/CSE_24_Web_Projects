@@ -1,0 +1,59 @@
+body{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+.cs05_span_red{
+    color: red;
+}
+.cs05_span_yellow{
+    color: yellow;
+}
+
+.cs05_wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    padding: 15px;
+    width: 50%;
+    background: rgb(71, 62, 96);
+    border-radius: 5px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+input{
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+.cs05_center-text{
+    text-align: center;
+}
+.cs05_center-element {
+    margin: 0 auto;
+    display: block;
+}
+.cs05_button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cs05_reset-button {
+    color: rgb(31, 5, 5);
+    padding: 10px;
+    border: 2px solid white;
+    background: rgb(60, 137, 87);
+    display: block;
+    margin-top: 5%;
+    cursor: pointer;
+}
+.cs05_button{
+    
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    background: rgb(162, 158, 124);
+    display: block;
+    margin-top: 5%;
+    cursor: pointer;
+}

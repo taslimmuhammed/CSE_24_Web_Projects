@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TCR20CS069</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+    }
+    #quote-container {
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    #quote-text {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #quote-author {
+      font-size: 18px;
+    }
+    #new-quote-button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="quote-container">
+    <div id="quote-text">"This is a random quote."</div>
+    <div id="quote-author">- Author</div>
+    <button id="new-quote-button" onclick="getRandomQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "The only way to do great work is to love what you do.",
+        author: "Steve Jobs"
+      },
+      {
+        text: "Innovation distinguishes between a leader and a follower.",
+        author: "Steve Jobs"
+      },
+      {
+        text: "The future belongs to those who believe in the beauty of their dreams.",
+        author: "Eleanor Roosevelt"
+      },
+      {
+        text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        author: "Winston Churchill"
+      },
+      {
+        text: "To live is the rarest thing in the world. Most people exist, that is all.",
+        author: "Oscar Wilde"
+      },
+      {
+        text: "Self-awareness and self-love matter. Who we are is how we lead.",
+        author: " Brene Brown"
+      },
+      {
+        text: "The only limit to our realization of tomorrow will be our doubts of today.",
+        author: "Franklin D. Roosevelt"
+      }
+    ];
+
+    function getRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quoteContainer = document.getElementById("quote-container");
+      const quoteText = document.getElementById("quote-text");
+      const quoteAuthor = document.getElementById("quote-author");
+
+      const randomQuote = quotes[randomIndex];
+      quoteText.textContent = `"${randomQuote.text}"`;
+      quoteAuthor.textContent = `- ${randomQuote.author}`;
+    }
+
+    // Initial quote when the page loads
+    getRandomQuote();
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+        .title {
+            text-align: center;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            background-size: 300%;
+            background-image: linear-gradient(45deg, #ffb240, #ff646a, #d376f7, #374bf9);
+            position: relative;
+            z-index: 1;
+            animation: flow 5s ease-in-out 0s infinite normal none running;
+            font-family: 'Inter', sans-serif;
+            font-size: 42px;
+            letter-spacing: -2px;
+        }
+
+        @keyframes flow {
+            0% {
+                background-position: 0 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background: #121a2a;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px 16px;
+            border: 1px solid #ffffff5a;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .countries {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">
+        Get Time of Countries <br />
+        in One Click
+    </h1>
+    <div class="time" id="newTime">
+        Click a country of see time
+    </div>
+
+    <div class="countries">
+        <div class="time" onclick='getTime("Dubai")'>
+            Dubai
+        </div>
+        <div class="time" onclick='getTime("Kolkata")'>
+            India
+        </div>
+        <div class="time" onclick='getTime("Tokyo")'>
+            Japan
+        </div>
+        <div class="time" onclick='getTime("Qatar")'>
+            Qatar
+        </div>
+        <div class="time" onclick='getTime("Seoul")'>
+            South Korea
+        </div>
+        <div class="time" onclick='getTime("Jakarta")'>
+            Indonesia
+        </div>
+        <div class="time" onclick='getTime("Bangkok")'>
+            Thailand
+        </div>
+        <div class="time" onclick='getTime("Tbilisi")'>
+            Georgia
+        </div>
+    </div>
+
+    <script>
+
+        function extractTime(inputString) {
+            const timePattern = /(\d{2}:\d{2}:\d{2}.\d{6})/;
+
+            const match = timePattern.exec(inputString);
+
+            if (match && match.length > 1) {
+                return match[1];
+            } else {
+                return null;
+            }
+        }
+
+        async function getTime(place) {
+            const response = await fetch(`http://worldtimeapi.org/api/timezone/Asia/${place}`, {
+                method: "GET",
+            });
+            let res = await response.json();
+            console.log(res.datetime);
+            document.getElementById("newTime").innerHTML = extractTime(res.datetime).split(".")[0];
+        }
+    </script>
+</body>
+
+</html>

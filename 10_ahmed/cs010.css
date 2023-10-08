@@ -1,0 +1,43 @@
+
+
+.cs10-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.cs10-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cs10-input{
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
+.cs10-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.cs10-btn:hover {
+    background-color: #0056b3;
+}
+
+#cs10-timerDisplay {
+    font-size: 36px;
+}
+

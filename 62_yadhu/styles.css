@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.expense-tracker {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cs62_input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.cs62-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cs62_h1,
+.cs62_h2,
+.cs62_span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cs62_ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cs62-button:active {
+    background-color: #555;
+}
+
+.cs62-button:hover {
+    background-color: #444;
+}

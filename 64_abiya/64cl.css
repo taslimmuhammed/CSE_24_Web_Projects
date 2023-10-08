@@ -1,0 +1,12 @@
+#clock64 {
+	font-size: 100px;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	width: 900px;
+	margin: 200px;
+	text-align: center;
+	/*border: 2px solid black;*/
+	border-radius:20px;
+	color:black;
+	background-color:rosybrown;
+}
+

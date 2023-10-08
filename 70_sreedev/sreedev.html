@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Temperature Convertor</title>
+        <link rel="stylesheet" href="sreedev.css">
+    </head>
+    <body>
+        <div class="macContainer">
+            <h2>Temperature Converter</h2>
+            <br><br>
+            <input type="number" id="macTemperature" step="any" placeholder="Enter temperature" style="text-align: center;" >
+            <br><br>
+            <br>
+            <select id="macFromUnit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+            <span>to</span>
+            <select id="macToUnit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahreheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+            <br>
+            <br>
+            <button id="macConvertButton">CONVERT</button>
+            <p id="macResult"></p>
+        </div>
+        <script src="sreedev.js"></script>
+    </body>
+</html>

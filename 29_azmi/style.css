@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  
+  .cs29-qrhead {
+    font-size: 55px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #0040ff, 0 3px 0 #00ff29, 0 4px 0 #2af414, 0 5px 0 #19ff00, 0 6px 1px rgba(0, 0, 0, 0.1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .cs29-qrbody{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right top, #ffffff, #00ff59);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cs29-main {
+    width: 25%;
+    height: 70%;
+    padding: 50px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .cs29-main .cs29-input {
+    width: 90%;
+    padding: 8px 25px;
+    border: 3px solid #9e9e9e;
+    outline: none;
+    margin: 15px 0;
+
+  }
+  .cs29-main .cs29-input:focus {
+    border: 3px solid #0077ff;
+    box-shadow: 0 10px 10px -10px #004ca2;
+
+
+
+  }
+  .cs29-btn,
+  .cs29-input {
+    font-size: 1.1rem;
+    border-radius: 5px;
+  }
+  .cs29-main .cs29-btn {
+    width: 90%;
+    padding: 12px 0;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #0077ff;
+    color: #fff;
+    transition: 0.3s;
+  }
+  .cs29-main .cs29-code {
+    height: 12vw;
+    margin: 10px 0;
+  }
+  
+  .cs29-main .cs29-btn:hover {
+    box-shadow: 0 10px 25px -10px #0077ff;
+  }
+  .cs29-qr{
+    height: 20vw;
+    display: flex;
+    width: 100%;
+    /* background: red; */
+    align-items: center;
+    justify-content: center;
+  }
+  .cs29-qr img{
+    height: 12vw;
+  }
+  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" type="text/css" href="cs18.css">
+</head>
+<body class="cs18_body">
+    <div class="cs18_converter">
+        <h1>Currency Converter</h1>
+        <label for="fromCurrency" class="cs18_label">From Currency:</label>
+        <select id="fromCurrency">
+            <option value="USD">US Dollar (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="JPY">Japanese Yen (JPY)</option>
+            <option value="INR">Indian Rupee (INR)</option>
+            <option value="CNY">Chineese Yuan (CNY)</option>
+            <option value="SGD">Singapore Dollar (SGD)</option>
+            <option value="KRW">South Korean Won (KRW)</option>
+        </select>
+        <br>
+        <label for="amount" class="cs18_label">Amount:</label>
+        <input type="number" id="cs18_amt" placeholder="Enter amount" value="1.00" class="cs18_amount">
+        <br>
+        <label for="toCurrency" class="cs18_label">To Currency:</label>
+        <select id="toCurrency">
+            <option value="USD">US Dollar (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="JPY">Japanese Yen (JPY)</option>
+            <option value="INR">Indian Rupee (INR)</option>
+            <option value="CNY">Chineese Yuan (CNY)</option>
+            <option value="SGD">Singapore Dollar (SGD)</option>
+            <option value="KRW">South Korean Won (KRW)</option>
+        </select>
+        <br>
+        <button onclick="convertCurrency()" class="cs18_button">Convert</button>
+        <br>
+        <div id="cs18_result"></div>
+    </div>
+    <script src="cs18.js"></script>
+</body>
+</html>

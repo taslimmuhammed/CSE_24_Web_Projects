@@ -1,0 +1,378 @@
+:root {
+    --bordrad: 10px;
+    --fontsize: 130%;
+    --fontwgt: bold;
+    --margin: 1px;
+    --bgdcolor: rgba(18, 14, 14, 0.755);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* general css used */
+
+body {
+    overscroll-behavior: none;
+    user-select: none;
+    height: 100vh;
+    background-color: var(--bgdcolor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+
+.row_30 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.button_30 {
+    height: clamp(3rem, 5vh, 3rem);
+    width: clamp(7rem, 10vw, 15rem);
+    box-shadow: #8fd49f 3px 3px 3px;
+    border: 1px solid rgb(111, 194, 144);
+    background-color: rgba(22, 158, 119, 0.869);
+    cursor: pointer;
+    border-radius: var(--bordrad);
+}
+
+.button_30:hover {
+    background-color: rgba(5, 70, 51, 0.839);
+}
+
+
+
+/* general css used */
+
+/*Major blocks css*/
+
+/*//////header//////*/
+#header_30 {
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--bgdcolor);
+    font-size: var(--fontsize);
+    font-weight: var(--fontwgt);
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/*//////taskInput/////*/
+#TaskInput_30 {
+    height: 15vh;
+    width: clamp(800px, 80vw, 1000px);
+    border-radius: var(--bordrad);
+}
+
+/*///////tasklist/////*/
+#tasklist_30 {
+    height: 60vh;
+    width: clamp(800px, 50vw, 1600px);
+    border-radius: var(--bordrad);
+    background-color: var(--bgdcolor);
+}
+
+/*///////footer//////*/
+#footer_30 {
+    background-color: var(--bgdcolor);
+    height: 10vh;
+    width: 100vw;
+}
+
+
+
+
+/*///// css of elements in #header///////*/
+
+/*/////// #homebtn #infobtn /////*/
+#homebtn_30,
+#infobtn_30 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: var(--fontwgt);
+    color: #f0eded;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+
+/*//// #mainheading//////*/
+#MainHeading_30 {
+    background-color: transparent;
+}
+
+/*///// css of elements in #TaskInput///////*/
+
+/*/////// #ipbox  #ctrlbox ///////*/
+#ipbox_30,
+#ctrlbox_30 {
+    width: 80%;
+    height: 100%;
+}
+
+/*/////// .inputbox ///////*/
+
+.Inputbox_30 {
+    font-size: var(--fontsize);
+    font-weight: var(--fontwgt);
+    color: #333;
+    border: 1px solid rgba(204, 204, 204, 0.614);
+    background-color: rgba(223, 220, 220, 0.857);
+    border-radius: var(--bordrad);
+    padding: 10px;
+    width: 40%;
+    height: 40%;
+
+}
+
+
+/*///// css of elements in #tasklist///////*/
+
+/*//////.Heading/////*/
+.Heading_30 {
+    font-size: 150%;
+    color: #f0eded;
+    background-color: rgba(7, 7, 7, 0.859);
+    text-align: center;
+    line-height: 2;
+    border-radius: var(--bordrad);
+}
+
+/*//////.task/////*/
+.task_30 {
+    height: 10vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: var(--fontwgt);
+    border-radius: var(--bordrad);
+    background-color: rgba(79, 79, 79, 0.219);
+    margin-top: 1vh;
+    color: #f0eded;
+    font-size: clamp(1.5rem, 130%, 0.75rem);
+}
+
+/*///// #today #upcoming////*/
+#today_30,
+#upcoming_30 {
+    height: 30vh;
+
+}
+
+/*///// #missed #completed////*/
+#Missed_30,
+#completed_30 {
+    display: none;
+    height: 60vh;
+}
+
+/*//////////.todo////////*/
+.todo_30 {
+    width: 70%;
+    display: flex;
+}
+
+.todo_30 div:nth-child(1) {
+    width: 80%;
+    text-align: left;
+}
+
+.todo_30 div:nth-child(2) {
+    width: 20%;
+    font-size: 50%;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*////.container//////*/
+.container_30 {
+    height: 80%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*//////.count//////*/
+.count_30 {
+    color: #fffbfb;
+    border-radius: var(--bordrad);
+    max-width: 200px;
+    max-height: 250px;
+
+}
+
+/*//////.action//////*/
+.action_30 {
+    padding: 10px;
+    width: clamp(40px, 20vw, 90px);
+    font-size: clamp(0.75rem, 130%, 1rem);
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*//////.action:hover//////*/
+.action_30:hover {
+    box-shadow: #8fd49f 3px 3px 3px;
+    border: 1px solid rgb(111, 194, 144);
+    background-color: rgba(22, 158, 119, 0.869);
+}
+
+/*//////media queries/////*/
+@media screen and (max-width: 800px) {
+
+    #taskEnter_30,
+    #TaskDate_30 {
+        width: 90%
+    }
+
+    #ipbox_30,
+    #ctrlbox_30,
+    #EditInput_30 {
+        flex-direction: column;
+        height: 15vh;
+        width: 100%;
+    }
+
+    #ctrlbox_30 .button {
+        height: clamp(2rem, 5vh, 3rem);
+        width: clamp(4rem, 10vw, 15rem);
+    }
+
+    #TaskInput_30 {
+        flex-direction: row;
+        width: 90%;
+    }
+
+    #tasklist_30 {
+        height: 60%;
+        width: 100vw;
+        border-radius: 0px;
+    }
+
+    .todo_30 {
+        font-size: clamp(1rem, 1vw, .75rem);
+    }
+
+    #infobtn_30:hover::after {
+        font-size: 1rem;
+
+    }
+}
+
+/*//////.hidden//////*/
+.hidden_30 {
+    display: none;
+}
+
+/*//////.menu//////*/
+.menu_30 {
+    position: relative;
+    text-align: center;
+    /* Needed to position the menu-actions element */
+}
+
+/*///// menu-icon/////*/
+.menu-icon_30 {
+    cursor: pointer;
+    width: clamp(30px, 20vw, 40px);
+    height: clamp(30px, 20vw, 40px);
+    border-radius: 50px;
+    color: #fff;
+    background-color: #252424;
+
+}
+
+/*menu-actions*/
+.menu-actions_30 {
+    position: absolute;
+    /* Position the menu-actions element */
+    top: 120%;
+    right: 0;
+    z-index: 1;
+}
+
+/*info btn*/
+#infobtn_30 {
+    position: relative;
+}
+
+
+#infobtn_30:hover::after {
+    text-align: left;
+    content: " simple todo app is a digital tool designed to help you keep track of tasks and to-dos in a straightforward and intuitive way. The app allows you to create a list of tasks, each with its own description, due date, and status. You can add new tasks, mark tasks as completed, and delete tasks that are no longer relevant.";
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    background-color: #0f9159;
+    color: #fff;
+    border-radius: 15px;
+    width: clamp(200px, 80vw, 500px);
+    white-space: pre-wrap;
+    padding: 20px;
+    z-index: 10;
+    line-height: 5vh;
+}
+
+/*popup*/
+.popup_30 {
+    height: 30vh;
+    font-size: clamp(1rem, 1vw, .75rem);
+    width: clamp(300px, 80vw, 500px);
+    color: rgb(248, 248, 248);
+    background-color: rgba(0, 0, 0, 0.473);
+    border-radius: var(--bordrad);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.blur_30 {
+    filter: blur(5px);
+}
+
+#EditInput_30 {
+    width: 100%;
+    height: 100%;
+    font-size: clamp(1rem, 1vw, .75rem);
+    border: none;
+    color: rgb(248, 248, 248);
+    border-radius: var(--bordrad);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#Editbtn_30 {
+    width: 100%;
+    height: 50%;
+    font-size: clamp(1rem, 1vw, .75rem);
+    border: none;
+    color: rgb(248, 248, 248);
+    border-radius: var(--bordrad);
+
+}

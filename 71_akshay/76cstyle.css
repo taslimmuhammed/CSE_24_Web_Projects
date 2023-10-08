@@ -1,0 +1,34 @@
+
+
+.cs76center {
+    margin: 100px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cs76h3 {
+    color: #ffb700;
+}
+
+.cs76input[type="date"] {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cs76button[type="submit"] {
+    background-color: #075609;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#cs71message {
+    color: red;
+}
+
+.cs71centered-image {
+    margin: 0 auto;
+}

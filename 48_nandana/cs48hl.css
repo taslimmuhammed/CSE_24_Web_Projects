@@ -1,0 +1,33 @@
+body {
+    background :linear-gradient(to right,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    
+    text-align: center;
+}
+div{
+    position: absolute;
+    top: 250px;
+    right: 400px;
+	width:800px;
+	height:500px;
+	text-align: center;
+	text-align: middle;
+	font-size: 30px;
+    border:black;
+    border-radius: 5%;
+}
+
+input{
+    height: 50px;
+    width: 150px;
+    background-color: antiquewhite;
+    font-size:20px;
+    text-align: center;
+}
+
+button{
+    height: 50px;
+    width: 150px;
+    background-color: antiquewhite;
+    font-size:15px;
+    text-align: center;
+}
