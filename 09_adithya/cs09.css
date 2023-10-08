@@ -1,0 +1,15 @@
+.cs09div {
+    background :linear-gradient(yellow,red);
+    text-align: center;
+    height: 1000px;
+    font: Ariel;
+    font-size: 30px;
+    color: black;
+}
+.cs09{
+    background-color:rgba(215, 86, 0, 0.736);
+    width:200px;
+    font-size: 15px;
+    font: Ariel ;
+    color: black;
+}
