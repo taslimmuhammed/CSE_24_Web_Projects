@@ -8,8 +8,8 @@ function generate() {
 	const data = input.value;
 	const URL = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${data}`;
 	code.src = URL;
-	setTimeout(() => {
+	/*setTimeout(() => {
 		alert("Successfully Generated QR");
-	}, 400);
+	}, 400);*/
 }
 
