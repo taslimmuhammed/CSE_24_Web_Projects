@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="cs37style.css">
+     
+</head>
+<body class="cs37_body">
+    <div class="cs37_container">
+        <h1 class="cs37_h1"id="cs37_playerText">Tic Tac Toe</h1>
+        <button class="cs37_button"id="cs37_restartBtn">Restart</button>
+        <audio id="cs37_winSound" preload="auto">
+            <source src="win.wav" type="audio/wav">
+         </audio>
+         <audio id="cs37_symbolPlacementSound" preload="auto">
+            <source src="click.wav" type="audio/wav">
+        </audio>
+        <audio id="cs37_wrong" preload="auto">
+            <source src="wrong.wav" type="audio/wav">
+        </audio>
+        
+        <div id="cs37_gameboard">
+            <div class="cs37_box" id="0"></div>
+            <div class="cs37_box" id="1"></div>
+            <div class="cs37_box" id="2"></div>
+            <div class="cs37_box" id="3"></div>
+            <div class="cs37_box" id="4"></div>
+            <div class="cs37_box" id="5"></div>
+            <div class="cs37_box" id="6"></div>
+            <div class="cs37_box" id="7"></div>
+            <div class="cs37_box" id="8"></div>
+        </div>
+    </div>
+    
+    <script src="cs37game_logic.js"></script>
+</body>
+</html>

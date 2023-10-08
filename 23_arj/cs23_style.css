@@ -1,0 +1,58 @@
+  .cs23_game
+{   
+    height: 100%;
+    background-image: linear-gradient(blue,cyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  .cs23_grid {
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 90px 90px 90px;
+    border: 3px solid #000000;
+    
+  }
+  
+  .cs23_grid button {
+    background-color: #0baad6;
+    color: #1d0258;
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid #000000;
+  
+  }
+  .cs23_grid button:hover{
+    background-color: #157dcc;
+    color: #000000;
+  }
+  .cs23_scramble
+  {
+    padding: 2.5%;
+  }
+  .cs23_scramble button{
+    padding :10px 15px;
+    text-align: center;
+    background-color:#09a89d ;
+    color: #060256;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 6px #000000;
+    border: 1px solid #000000;
+    border-radius: 10px;  
+  }
+  .cs23_scramble button:hover{
+    background-color: #55a1da;
+    color:black;
+  }
+  .cs23_scramble button:active {
+    background-color: #55a1da;
+    color: black;
+    box-shadow: 0 3px #000000;
+    transform: translateY(4px);
+  }
+  #cs23_resulttext{
+    color: rgb(14, 0, 70);
+    font-size: 22px;
+  }

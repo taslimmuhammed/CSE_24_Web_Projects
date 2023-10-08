@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #f2c14e;
+    --winning-blocks: #ecd208;
+}
+
+.cs37_body {
+    color: var(--orange);
+    font-family: 'Pacifico', cursive;
+}
+.cs37_h1 {
+    font-size: 54px;
+    text-transform: uppercase;
+}
+
+.cs37_container {
+    padding: 40px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #37505C;
+}
+
+#cs37_gameboard {
+    width: 390px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+.cs37_box {
+    height: 130px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 120px;
+    border-right: 4px solid;
+    border-bottom: 4px solid;
+}
+.cs37_box:nth-child(3n) {
+    border-right: none;
+}
+.cs37_box:nth-child(6) ~ .cs37_box {
+    border-bottom: none;
+} 
+.cs37_button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #333;
+    border-color: var(--orange);
+    font-size: 20px;
+    transition: 20ms transform;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive;
+}
+button:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+   
+}

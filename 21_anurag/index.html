@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body id="cs21_body">
+    <div id="cs21_content">
+        <div id="cs21_head">
+           <h2 class="cs21_h2">Expense Manager</h2>
+        </div>
+        <div id="cs21_main">
+            <div id="cs21_balance">
+                <h3 id="cs21_bal" class="cs21_h3">BALANCE</h3>
+                <h1 id="cs21_balam" class="cs21_h1">0.00</h1>
+            </div>
+            <div id="cs21_expinc">
+                <div id="cs21_income">
+                  <h3 id="cs21_inc" class="cs21_h3">INCOME</h3>
+                  <h1 id="cs21_incam" class="cs21_h1">0.00</h1>
+                </div>
+                <div id="cs21_expense">
+                  <h3 id="cs21_exp" class="cs21_h3">EXPENSE</h3>
+                  <h1 id="cs21_expam" class="cs21_h1">0.00</h1>
+                </div>
+            </div>
+            <div id="cs21_history">
+                <div id="cs21_historyname">History</div>
+                <div id="cs21_historylist">
+                  <div class="cs21_listind">
+                    <div class="cs21_historynm"></div>
+                    <div class="cs21_historyamount"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cs21_footer">
+                <div id="cs21_tx">Transactions</div>
+                <select id="cs21_ty" class="cs21_trs">
+                  <option value="expense"  selected="selected">Expense</option>
+                  <option value="income" selet="selected">Income</option>
+                </select>
+                <input id="cs21_inp" class="cs21_trs" type="text" placeholder="Category"/>
+                <input id="cs21_aminp" class="cs21_trs" type="number" placeholder="amount"/>
+                <button id="cs21_submitbt">submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

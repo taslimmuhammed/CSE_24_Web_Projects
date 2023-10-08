@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Uppercase Converter</title>
+    <link rel="stylesheet" href="style36.css">
+</head>
+<body>
+    <br><h1>Text to Uppercase Converter</h1><br><br>
+     
+    
+    <div class="form-container">
+        <form>
+            <!-- <label for="textArea1" class="input-label">Input Area</label> -->
+            <textarea id="textArea1" class="styled-textarea" rows="4" placeholder="Input text here"></textarea>
+
+            <div class="buttonsR">
+                <button onclick="convertToUppercase(event)">Uppercase</button>
+                <button onclick="convertToLowercase(event)">Lowercase</button>
+                <button onclick="convertToFormal(event)">formal</button>
+                <button onclick="convertToFirstCap(event)">Capitalize</button>
+                <button onclick="RemoveLineBreak(event)">Remove Breaks</button>
+                <button onclick="RemoveWhiteSpace(event)">Extra space</button>
+                <button onclick="RandomCase(event)">Random</button>
+            </div>
+            <br><br>
+
+            <!-- <label for="textArea2" class="input-label">Output</label> -->
+            <textarea id="textArea2" class="styled-textarea" rows="4" placeholder="Output text here"></textarea>
+
+            <!-- You can add more form elements and a submit button here if needed -->
+        </form>
+    </div>
+    
+
+    <script src="script36.js"></script>
+</body>
+</html>
