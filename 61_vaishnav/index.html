@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Rock, Paper, Scissors</title>
+    </head>
+
+    <body>
+        <div class="cs61-wrapper">
+            <div class="cs61-score-panel">
+                <div class="cs61-score-title">
+                    <h1>
+                        Rock <br />paper <br />
+                        Scissors
+                    </h1>
+                </div>
+                <div class="cs61-scoreboard">
+                    <div class="cs61-score-label">Score</div>
+                    <div class="cs61-score-value">
+                        <h1 class="cs61-value">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="cs61-game-options">
+                <div id="cs61-paper" class="cs61-button">
+                    <span><img src="images/icon-paper.svg" alt="paper" /></span>
+                </div>
+                <div id="cs61-scissors" class="cs61-button">
+                    <span><img src="images/icon-scissors.svg" alt="scissors" /></span>
+                </div>
+                <div id="cs61-rock" class="cs61-button">
+                    <span><img src="images/icon-rock.svg" alt="rock" /></span>
+                </div>
+            </div>
+            <div class="cs61-result-container">
+                <div class="cs61-player">
+                    <div class="cs61-player-status">
+                        <h1>You Picked</h1>
+                    </div>
+                    <div id="cs61-player">
+                        <span id="cs61-game-1"
+                            ><img src="images/icon-paper.svg" alt="paper" id="cs61-user"
+                        /></span>
+                    </div>
+                </div>
+                <div class="cs61-computer">
+                    <div class="cs61-computer-status">
+                        <h1>The House Picked</h1>
+                    </div>
+                    <div class="cs61-invisible">
+                        <div id="cs61-computer">
+                            <span id="cs61-game-2"
+                                ><img src="images/icon-rock.svg" alt="rock" id="cs61-machine"
+                            /></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cs61-result-title">
+                    <div>
+                        <h1 id="cs61-status">You win</h1>
+                    </div>
+                    <div class="cs61-play-again">Play Again</div>
+                </div>
+            </div>
+
+            <div class="cs61-rules">Rules</div>
+            <div class="cs61-rules-overlay">
+                <div class="cs61-rules-container">
+                    <div class="cs61-rules-title">Rules</div>
+                    <div class="cs61-cross-btn">
+                        <img src="images/icon-close.svg" alt="close" />
+                    </div>
+                    <div class="cs61-rules-img">
+                        <img src="images/image-rules.svg" alt="rules" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="modal.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+.cs43-project {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.21);
+}
+.cs43-device{
+  position: absolute;
+  top: -29px;
+  left: -118px;
+  z-index: 10;
+}
+
+.cs43-window {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 364px;
+  height: 692px;
+  background-image: url('cs43background.png');
+  position: relative;
+  border-radius: 50px;
+  box-shadow: 10px 10px 15px rgba(0,0,0,.3);
+}
+
+#cs43-img1 {
+  animation: cs43-scrollObstacle 3s linear infinite; 
+  position: absolute;
+  right: -38%;
+  }
+
+#cs43-bird{
+  left: 23px;
+  position: absolute;
+}
+
+#cs43-gameoverscreen{
+  display: none;
+  position: fixed;
+  z-index: 3;
+  background-image: url('cs43backgroundGO.png');
+  width: 364px;
+  height: 692px;
+  border-radius: 50px;
+  justify-content: space-around;
+  font-size: xx-large;
+  color: rgb(255, 127, 39)
+}
+#cs43-score{
+  padding-left: 120px;
+  padding-top: 300px;
+}
+
+#cs43-reset{
+  background-color: orange;
+  color: white;
+  border: 2px solid orange;
+  padding: 5px 15px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+  border-radius: 5px;
+  margin-left: 40%;
+  margin-top: 30px;
+}
+ 
+@keyframes cs43-scrollObstacle {
+  0% {
+    right: -38%;
+  }
+  100% {
+    right: 92%;
+  } 
+}

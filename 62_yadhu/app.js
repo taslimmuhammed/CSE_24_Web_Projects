@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const amount = parseFloat(document.getElementById("expense-amount").value);
 
         if (!description || isNaN(amount)) {
-            alert("Please enter a valid description and amount.");
+            document.getElementById("cs62_msg").textContent = "Please enter a valid description and amount.";
             return;
         }
-
+		document.getElementById("cs62_msg").textContent = "";
         const expense = {
             description,
             amount

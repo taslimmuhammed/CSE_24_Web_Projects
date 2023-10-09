@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
           cs34_alert.innerHTML = 'Game Over'
           cs34_isGameOver = true
           //remove all children
-          cs34_body.removeChild(cs34_body.firstChild)
+          /*cs34_body.removeChild(cs34_body.firstChild)
           while (cs34_grid.firstChild) {
             cs34_grid.removeChild(cs34_grid.lastChild)
-          }
+          }*/
           
         }
         cs34_obstaclePosition -=10

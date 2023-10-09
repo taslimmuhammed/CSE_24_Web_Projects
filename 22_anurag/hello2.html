@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            Scale coverter
+        </title>
+        <style>
+            #cs22-distance_value{
+            width: 200px;
+            height: 20px;
+            
+
+            }
+            #cs22-distance_scale{
+                width: 70px;
+                height: 25px;
+
+            }
+            .cs22-convert{
+                width: 80px;
+                height: 20px;
+                color: aqua;
+
+                
+                
+            }
+            #cs22-button{
+            width: 100px;
+            height: 30px;
+           
+            }
+            #cs22-scale{
+                width: 500px;
+                height: 80px;
+                text-align: center;
+                font-size: large;
+            }
+            #cs22-distance_scale1{
+            width: 70px;
+            height: 25px;
+            }
+            #cs22-distance_value2{
+            width: 200px;
+            height: 20px;
+         }
+         #cs22-distance_scale2{
+            width: 70px;
+            height: 25px;
+            }
+        #cs22-distance_scale3{
+            width: 70px;
+            height: 25px;
+            }
+            .cs22-convert2{
+                width: 80px;
+                height: 20px;
+                color: aqua;
+            }
+            
+        
+
+        </style>
+        
+    </head>
+    
+        <body>
+            <div id="cs22-scale">
+                <h1 >Scale Converter</h1>
+            </div>
+            <div>
+                <h2>Distance Converter</h2>
+            </div>
+
+            <input type="text"  name="cs22-distance_value" id="cs22-distance_value">
+            <select name="cs22-distance_scale", id="cs22-distance_scale">
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="km">km</option>
+                <option value="inch">inch</option>
+            </select><br><br>
+            <p class="cs22-convert" >Convert to :</p>
+            <select name="cs22-distance_scale1", id="cs22-distance_scale1">
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+                <option value="km">km</option>
+                <option value="inch">inch</option>
+            </select><br><br>
+            <button type="submit" onclick="cs22getValue()" id="cs22-button"> Convert </button><br><br>
+            <p id="cs22-result"></p>
+            <div>
+               <h2> Weight Converter</h2>
+            </div>
+            <input type="text"  name="cs22-distance_value2" id="cs22-distance_value2">
+            <select name="cs22-distance_scale2", id="cs22-distance_scale2">
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+                <option value="lb">lb</option>
+            </select><br><br>
+            <p class="cs22-convert2" >Convert to :</p>
+            <select name="cs22-distance_scale3", id="cs22-distance_scale3">
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+                <option value="lb">lb</option>
+            </select><br><br>
+            <button type="submit" onclick="cs22getValue2()" id="cs22-button"> Convert </button><br><br>
+            <p id="cs22-result2"></p>
+            <script>
+                function cs22getValue() {
+                   
+                    var value1= document.getElementById("cs22-distance_value").value;
+                    var Distance=parseFloat(value1);
+                    var select_Value=document.getElementById("cs22-distance_scale").value;
+                    // var select_Value2=document.getElementById("distance_scale1").value;
+                    var unitSelect = document.getElementById("cs22-distance_scale");
+                    var selectedUnit = unitSelect.options[unitSelect.selectedIndex].value;
+                    var unitSelect1 = document.getElementById("cs22-distance_scale1");
+                    var selectedUnit1 = unitSelect1.options[unitSelect1.selectedIndex].value;
+                    var convert_scale=cs22convert(selectedUnit,selectedUnit1,Distance);
+                    var resultParagraph = document.getElementById("cs22-result");
+                    resultParagraph.textContent = value1 + " " +selectedUnit+" = "+ convert_scale+ " "+ selectedUnit1;
+                    
+
+                }
+                function cs22convert(unit,unit1,value){
+                   switch(unit){
+                    case 'cm':
+                        switch(unit1){
+                            case 'cm':
+                                return value;
+                            case 'm':
+                                return value*0.01;
+                            case 'km':
+                                return value*0.00001;
+                            case 'inch':
+                                return value*0.3937;
+                        }
+                    case 'm':
+                        switch(unit1){
+                            case 'cm':
+                                return value*100
+                            case 'm':
+                                return value;
+                            case 'km':
+                                return value*0.01;
+                            case 'inch':
+                                return value*39.37;
+                        }
+                        case 'km':
+                        switch(unit1){
+                            case 'cm':
+                                return value*100000;
+                            case 'm':
+                                return value*1000;
+                            case 'km':
+                                return value;
+                            case 'inch':
+                                return value*39370.1;
+                        }
+                        case 'inch':
+                        switch(unit1){
+                            case 'cm':
+                                return value*2.54;
+                            case 'm':
+                                return value*0.0254;
+                            case 'km':
+                                return value*0.0000254;
+                            case 'inch':
+                                return value;
+                        }
+                   }
+        
+                }
+                function cs22getValue2() {
+                   
+                   var value1= document.getElementById("cs22-distance_value2").value;
+                   var Distance=parseFloat(value1);
+                   var select_Value=document.getElementById("cs22-distance_scale2").value;
+                   var unitSelect = document.getElementById("cs22-distance_scale2");
+                   var selectedUnit = unitSelect.options[unitSelect.selectedIndex].value;
+                   var unitSelect1 = document.getElementById("cs22-distance_scale3");
+                   var selectedUnit1 = unitSelect1.options[unitSelect1.selectedIndex].value;
+                   var convert_scale=cs22convert2(selectedUnit,selectedUnit1,Distance);
+                   var resultParagraph = document.getElementById("cs22-result2");
+                   resultParagraph.textContent =  value1 + " " +selectedUnit+" = "+ convert_scale+ " "+ selectedUnit1;
+                   
+
+               }
+               function cs22convert2(unit,unit1,value){
+                   switch(unit){
+                    case 'g':
+                        switch(unit1){
+                            case 'g':
+                                return value;
+                            case 'kg':
+                                return value*0.001;
+                            case 'lb':
+                                return value*0.002204;
+                            
+                        }
+                    case 'kg':
+                        switch(unit1){
+                            case 'g':
+                                return value*1000
+                            case 'kg':
+                                return value;
+                            case 'lb':
+                                return value*2.20462;
+                            
+                        }
+                        case 'lb':
+                        switch(unit1){
+                            case 'g':
+                                return value*453.592;
+                            case 'kg':
+                                return value*0.453592;
+                            case 'lb':
+                                return value;
+                            
+                        }
+                       
+                   }
+        
+                }
+            </script>
+            
+        </body>
+        
+  
+  
+</html>

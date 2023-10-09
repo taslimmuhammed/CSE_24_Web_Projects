@@ -9,7 +9,6 @@ const Addbtn = document.querySelector('#Addbtn_30');
 const Clearbtn = document.querySelector('#Clearbtn_30');
 ///////////////////////////////////////////////////////////////////////
 const tasks = document.querySelector('.tasks_30');
-//]const container = document.querySelector('.container');
 ///////////////////////// current task elements ///////////////////////////////////////////
 const today = document.querySelector('#today_30');
 const today_container = document.querySelector('#crrnt_container_30');
@@ -43,13 +42,16 @@ window.addEventListener('load', function () {
     });
     viewMisedTasks.addEventListener('click', function () {
         veiw_and_Hide_Area(today, upcoming, completedTask, Missed);
+        displayFromLocalStorage();
     });
     viewCompletedTasks.addEventListener('click', function () {
         veiw_and_Hide_Area(today, upcoming, Missed, completedTask);
+        displayFromLocalStorage();
     });
     viewCurrentTasks.addEventListener('click', function () {
         today.style.height = '60vh';
         veiw_and_Hide_Area(Missed, upcoming, completedTask, today);
+        displayFromLocalStorage();
     });
 
     id = JSON.parse(localStorage.getItem('lastId')) || 0;
@@ -60,78 +62,51 @@ window.addEventListener('load', function () {
 
 });
 
-function setmenubtns() {
-    var menubtns = document.getElementsByClassName('menu_30')
-    for (var i = 0; i < menubtns.length; i++) {
-        menubtns[i].addEventListener('click', function () {
-            console.log('clicked + ' + this.parentElement.id);
-            var menuoptns = this.parentElement.getElementsByClassName('menu_30')[0].getElementsByClassName('menu-actions_30')[0];
-            console.log(menuoptns);
-            menuoptns.classList.toggle('hidden_30');
+document.getElementById('tasklist_30').addEventListener('click', function(event) {
+    const target = event.target;
+  
 
-            var editbtn = menuoptns.getElementsByClassName('action_30')[1];
-            var deletebtn = menuoptns.getElementsByClassName('action_30')[0];
-            var cmpltbtn = menuoptns.getElementsByClassName('action_30')[2];
-            var undobtn = menuoptns.getElementsByClassName('action_30')[3];/*not working */
-            var taskid = this.parentElement.id;
+    const taskElement = target.closest('.task_30');
+    console.log(taskElement.id,taskElement)
+    if (!taskElement) return;
 
-            editbtn.addEventListener('click', function () {
-                editpopup(taskid);
-            });
+    const taskId = taskElement.id;
 
-            deletebtn.addEventListener('click', function () {
-                RemoveFromLocalStorage(taskid)
-            })
-
-            cmpltbtn.addEventListener('click', function () {
-                updateStatus(taskid, 'completed');
-
-            });
-
-            /*  undobtn.addEventListener('click', function () {
-                  updateStatus(taskid, 'notdone')
-              })*/
-
-        });
-
-
+    if (target.classList.contains('menu-icon_30')) {
+        const menuActions = taskElement.querySelector('.menu-actions_30');
+        menuActions.classList.toggle('hidden_30');
+    } else if (target.innerText === 'edit') {
+        editpopup(taskId,taskElement);
+    } else if (target.innerText === 'delete') {
+        RemoveFromLocalStorage(taskId,taskElement);
+    } else if (target.innerText === 'Done') {
+        updateStatus(taskId, 'completed',taskElement);
+    } else if (target.innerText === 'undo') {
+        console.log('hello')
+        updateStatus(taskId, 'notdone',taskElement);
     }
-}
+});
+
 
 // function to displa current date
+
+
 function findcurrentdate() {
-    if (new Date().getMonth() + 1 < 10) {
-        currentdate = new Date().getFullYear() + '-' + "0" + (new Date().getMonth() + 1) + '-' + new Date().getDate();
-    } else {
-        currentdate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
-    }
-}
-/// function to add task on to screen
-// Declare a variable to hold a reference to the Edit_bar element
-function addTask(task, date, container, where_to_add) {
-    let taskElement = document.createElement('div');
-    taskElement.classList.add('task_30');
-    taskElement.innerHTML = `
-    <div class="todo_30"><div>${task}</div>
-    <div>${date}</div></div>
-    <div class="menu_30">
-      <div class="menu-icon_30" id="Edit_bar_30">...</div>
-      <div class="menu-actions_30 hidden_30">
-        <div class="action_30" id="deletebtn_30">delete</div>
-        <div class="action_30" id="editbtn_30">edit</div>
-        <div class="action_30" id="cmpltbtn_30">Done</div>
-      </div>
-    </div>
-  `;
-    taskElement.setAttribute('id', id);
-    container.appendChild(taskElement);
-    where_to_add.appendChild(container);
-    AddToLocalStorage(task, date, id);
-    updateNotification();
-    updateid();
+    let today = new Date();
+
+    let day = today.getDate();
+    if (day < 10) day = '0' + day;
+
+    let month = today.getMonth() + 1;  // getMonth() is zero-based
+    if (month < 10) month = '0' + month;
+
+    let year = today.getFullYear().toString(); // Get last two digits of the year
+
+    currentdate = year + '-' + month + '-' +day ;
+
+    return currentdate;
 }
 
-// Access the Edit_bar element outside the function
 
 // function to provide unique id for each task
 function updateid() {
@@ -144,20 +119,19 @@ function updateid() {
 Addbtn.addEventListener('click', function () {
     let task = Inputbox.value;
     let date = Taskdate.value;
-
+    console.log(currentdate)  
     if (task === '' || date === '') {
         alert('Please enter a task and date');
     } else if (currentdate === date) {
-        addTask(task, date, today_container, today);
+        createOrUpdateTask(task, date, today_container, today,null,true);
 
     } else if (new Date().getTime() < new Date(date).getTime()) {
-        addTask(task, date, upcoming_container, upcoming);
+        createOrUpdateTask(task, date, upcoming_container, upcoming,null,true);
     } else {
         alert('Please enter a valid date');
     }
     Inputbox.value = '';
     Taskdate.value = currentdate;
-    location.reload();
 });
 /// action that can be performed (ie, edit, delete, complete)
 
@@ -176,65 +150,81 @@ function AddToLocalStorage(task, date, id) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 // function to create task element from local storage
-function createtasktoDisplay(taskname, date, task_id, container, where_to_add) {
+
+function createTaskInnerHTML(taskname, date, where_to_add) {
+    console.log(where_to_add)
+    const commonHTML = `
+    <div class="todo_30">
+      <div>${taskname}</div>
+      <div>${date}</div>
+    </div>
+    <div class="menu_30">
+      <div class="menu-icon_30">...</div>
+      <div class="menu-actions_30 hidden_30 row_30">
+        <div class="action_30">delete</div>
+        <div class="action_30">edit</div>
+    `;
+    if (where_to_add == completedTask) {
+        return commonHTML + `<div class="action_30">undo</div></div></div>`;
+    }
+    return commonHTML + `<div class="action_30">Done</div></div></div>`;
+}
+
+// create or update function to create the element and stor in local storage and to display from local storage
+function createOrUpdateTask(taskname, date, container, where_to_add, task_id = null, addToStorage = false) {
     let taskElement = document.createElement('div');
     taskElement.classList.add('task_30');
-    if (where_to_add == completedTask) {
-        taskElement.innerHTML = `
-    <div class="todo_30"><div>${taskname}</div>
-    <div>${date}</div></div>
-    <div class="menu_30">
-      <div class="menu-icon_30" id="Edit_bar_30">...</div>
-      <div class="menu-actions_30 hidden_30">
-        <div class="action_30" id="deletebtn_30">delete</div>
-        <div class="action_30" id="editbtn_30">edit</div>
-        <div class="action_30" id="addbackbtn_30">undo</div>
-      </div>
-    </div>
-  `;
-    }
-    else {
-        taskElement.innerHTML = `
-    <div class="todo_30"><div>${taskname}</div>
-    <div>${date}</div></div>
-    <div class="menu_30">
-      <div class="menu-icon_30" id="Edit_bar_30">...</div>
-      <div class="menu-actions_30 hidden_30">
-        <div class="action_30" id="deletebtn_30">delete</div>
-        <div class="action_30" id="editbtn_30">edit</div>
-        <div class="action_30" id="cmpltbtn_30">Done</div>
-      </div>
-    </div>
-  `;
-    }
+    taskElement.innerHTML = createTaskInnerHTML(taskname, date, where_to_add);
+
+    // If a task_id is provided, use it; otherwise, use the global id.
+    task_id = task_id || id;
     taskElement.setAttribute('id', task_id);
+
+    // This line was clearing the container; remove if not intended.
     container.appendChild(taskElement);
     where_to_add.appendChild(container);
+
+    // If the function is being used to add a task, add to localStorage and update notifications.
+    if (addToStorage) {
+        AddToLocalStorage(taskname, date, task_id);
+        updateNotification();
+        updateid();
+    }
 }
+function isTaskAlreadyPresent(task_id) {
+    return !!document.getElementById(task_id);
+}
+
+
 //display from  local storage function
 function displayFromLocalStorage() {
-
     findcurrentdate();
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const currentDateObj = new Date(currentdate);
 
-    tasks.forEach(function (task) {
-        if (new Date().getTime() < new Date(task.date).getTime() && task.taskstatus == 'notdone' && currentdate != task.date) {
-            createtasktoDisplay(task.task, task.date, task.id, upcoming_container, upcoming);
-        } else if (currentdate == task.date && task.taskstatus == 'notdone') {
-            createtasktoDisplay(task.task, task.date, task.id, today_container, today);
-        } else if (new Date().getTime() > new Date(task.date).getTime() && task.taskstatus == 'notdone' && currentdate != task.date) {
-            createtasktoDisplay(task.task, task.date, task.id, Missed_container, Missed);
-        } else if (task.taskstatus == 'completed' && (new Date().getTime() < new Date(task.date).getTime() || currentdate == task.date)) {
-            createtasktoDisplay(task.task, task.date, task.id, completed_container, completedTask);
-        } else {
-            RemoveFromLocalStorage(task.id);
+    tasks.forEach(function(task) {
+        const taskDateObj = new Date(task.date);
+
+        if (isTaskAlreadyPresent(task.id)) {
+            return;  // Skip this iteration if task already exists in the DOM
+        }
+        
+        if (task.taskstatus == 'completed') {
+            createOrUpdateTask(task.task, task.date, completed_container, completedTask,task.id);
+        } else if (taskDateObj.getTime() === currentDateObj.getTime()) {
+            createOrUpdateTask(task.task, task.date, today_container, today,task.id);
+        } else if (taskDateObj > currentDateObj) {
+            createOrUpdateTask(task.task, task.date, upcoming_container, upcoming,task.id);
+        } else if (taskDateObj < currentDateObj) {
+            createOrUpdateTask(task.task, task.date, Missed_container, Missed,task.id,);
         }
     });
-    setmenubtns();
-
 }
+
+
+
 // edit from local storage function
-function editFromLocalStorage(task, date, id) {
+function editFromLocalStorage(task, date, id,taskElement) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].id == id) {
@@ -243,10 +233,12 @@ function editFromLocalStorage(task, date, id) {
         }
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    location.reload();
+    taskElement.remove()
+    displayFromLocalStorage();
+      
 }
 // remove from local storage function
-function RemoveFromLocalStorage(id) {
+function RemoveFromLocalStorage(id,taskElement) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].id == id) {
@@ -254,7 +246,8 @@ function RemoveFromLocalStorage(id) {
         }
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    location.reload();
+    taskElement.remove()
+    updateNotification()
 }
 // validate_edited info function
 function validate_edited_task(task, date) {
@@ -277,7 +270,7 @@ function validate_edited_task(task, date) {
     }
 }
 // update status function
-function updateStatus(id, status) {
+function updateStatus(id, status,taskElement) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     for (let i = 0; i < tasks.length; i++) {
@@ -286,7 +279,8 @@ function updateStatus(id, status) {
         }
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    location.reload();
+    taskElement.remove()
+    updateNotification()
 }
 // veiew_and_Hide_Area function
 function veiw_and_Hide_Area(area1, area2, area3, area4) {
@@ -342,7 +336,7 @@ function blur() {
         document.getElementById('TaskInput_30').classList.add('blur_30');
     }
     else {
-        TaskList.classList.remove('blur');
+        TaskList.classList.remove('blur_30');
         document.getElementById('header_30').classList.remove('blur_30');
         document.getElementById('footer_30').classList.remove('blur_30');
         document.getElementById('TaskInput_30').classList.remove('blur_30');
@@ -350,7 +344,7 @@ function blur() {
 }
 
 /// popup that perform editing the task 
-function editpopup(elementid) {
+function editpopup(elementid,taskElement) {
     document.getElementById('Editpopup_30').style.display = 'flex';
     blur();
     document.getElementById('Reject_30').addEventListener("click", function () {
@@ -362,8 +356,10 @@ function editpopup(elementid) {
         let task = document.getElementById('EditedTask_30').value;
         let date = document.getElementById('EditedTaskDate_30').value;
         if (validate_edited_task(task, date)) {
-            editFromLocalStorage(task, date, elementid);
+            editFromLocalStorage(task, date, elementid,taskElement);
+            
         }
+        blur();
     })
 }
 

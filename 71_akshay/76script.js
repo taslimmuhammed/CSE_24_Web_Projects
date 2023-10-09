@@ -63,7 +63,7 @@ function cs71ageCalculator() {
         //when current month and date is same as birth date and month
         else if ((age.years > 0) && (age.months == 0) && (age.days == 0)) {
             ageString = age.years + " years old. Happy Birthday✨";
-            image.src = "https://i0.wp.com/acegif.com/wp-content/gif/hapby-cat-32.gif";
+            image.src = "hapby-cat-32.gif";
             image.style.display = "block";
 
         }
@@ -76,13 +76,13 @@ function cs71ageCalculator() {
         else if ((age.years == 0) && (age.months > 0) && (age.days == 0))
             ageString = age.months + " months old.";
         else if (age.years < 0) {
-            image.src = "https://th.bing.com/th/id/R.fbcad0ba0bf7432ead187816ff7cc8a7?rik=BiB3qvHlgWxsng&pid=ImgRaw&r=0";
+            image.src = "R.gif";
             image.style.display = "block";
             ageString = "oh no are u from future  or another dimension🌠  ";
         }
         //when current date is same as dob(date of birth)
         else {
-            image.src = "https://th.bing.com/th/id/R.f7e7cfbb67a8a375c3da7f68840dfd76?rik=AU8poQOyLeu53w&riu=http%3a%2f%2fbestanimations.com%2fMusic%2fDancers%2fFamousBaby%2fdancing-baby2.gif&ehk=zUGQwTD2x8e%2bsA1mdiLShNiRM%2fSPwIPmDCcXTjqlZYY%3d&risl=&pid=ImgRaw&r=0";
+            image.src = "S.gif";
             image.style.display = "block";
             ageString = "Welcome to Earth! <br> It's the first day on Earth!";
         }
