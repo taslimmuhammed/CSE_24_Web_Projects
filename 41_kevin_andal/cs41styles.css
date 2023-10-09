@@ -1,0 +1,35 @@
+body {
+  background-color: #97cfe5;
+}
+
+.cs41-headings {
+  text-align: center;
+  color: #ffffff;
+}
+
+.cs41-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs41-myCanvas {
+  background-color: #ffffff;
+  border: 5px solid burlywood;
+  border-radius: 10px;
+}
+
+.cs41-eraserBtn {
+  font-size: 16px;
+  padding: 5px;
+  background-color: #70ce75;
+  color: #ffffff;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cs41-eraserBtn:hover {
+  background-color: #59a35d;
+}
