@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>QR Code Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interactive Quiz Game</title>
 </head>
-
 <body>
-	<div class="cs29-qrbody">
-		<h1 class="cs29-qrhead">QR CODE GENERATOR</h1>
-		<div class="cs29-main">
-			<input type="text" name="" id="" class="cs29-input" placeholder="Enter text here...">
-			<button class="cs29-btn">Generate</button>
-			<div class="cs29-qr">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgdnbx19IIBKvSAwARaGMfbl06_CnXNcV63g&usqp=CAU"
-					alt="qrcode" class="cs29-code">
-			</div>
-			<p>Scan it using your mobile phone</p>
-		</div>
-	</div>
-	<script src="script.js"></script>
+	<div class="cs29-quizpage">
+    <div class="cs29-quiz-container">
+        <h1 class="cs29-quiz-title">Interactive Quiz Game</h1>
+        <div class="cs29-question-container">
+            <p class="cs29-question">Question 1: What is the capital of France?</p>
+            <div class="cs29-options">
+                <label class="cs29-option"><input type="radio" name="q1" value="paris"> Paris</label>
+                <label class="cs29-option"><input type="radio" name="q1" value="london"> London</label>
+                <label class="cs29-option"><input type="radio" name="q1" value="berlin"> Berlin</label>
+            </div>
+        </div>
+        <div class="cs29-feedback"></div>
+        <button class="cs29-next-button">Next</button>
+        <div class="cs29-result" style="display: none;">
+            <h2>Your Score:</h2>
+            <p class="cs29-score">0</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
