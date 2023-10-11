@@ -1,0 +1,21 @@
+body {
+}
+.cs07-heightcalcbody{
+        /* margin-top: 29px; */
+        background: lightgrey;
+        color: #fff;
+        width: 100%;
+        height: 100vh;
+        background: #4b0000;
+        align-items: center;
+        text-align: center;
+}
+.cs07-card {
+    margin-top: 11px;
+    background: red;
+}
+
+#resetButton {
+    margin: 21px;
+    background: grey;
+}

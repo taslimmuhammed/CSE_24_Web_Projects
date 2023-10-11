@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMI Calculator</title>
+    <meta name="description" content="JS app to calculates Body Mass Index">
+    <meta name="author" content="Supritha">
+    <link rel="stylesheet" href="style.css">
+     <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="cs01-bmibody">
+    <div class="cs01-bmi">
+      <h2>Body Mass Index Calculator</h2>
+      <p class="cs01-text">Height in cm</p><input type="text" id="cs01-height">
+      <p class="cs01-text">Weight in kg</p><input type="text" id="cs01-weight">
+      <p id="cs01-result"></p><button id="cs01-btn">Calculate</button>
+    </div>
+    <div class="cs01-chart">
+      <table>
+        <thead>
+          <tr>
+            <th>BMI</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-column="cs01-bmi">less than 18.5</td>
+            <td data-column="cs01-category">Underweight</td>
+          </tr>
+          <tr>
+            <td data-column="cs01-bmi">between 18.5 and 24.9</td>
+            <td data-column="cs01-category">Ideal</td>
+          </tr>
+          <tr>
+            <td data-column="cs01-bmi">between 25 and 29.9</td>
+            <td data-column="cs01-category">Overweight</td>
+          </tr>
+          <tr>
+            <td data-column="cs01-bmi">over 30 </td>
+            <td data-column="cs01-category">Obesity</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <script src="script.js"></script>
+   
+  </body>
+</html>
+
