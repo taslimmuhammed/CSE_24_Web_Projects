@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     const questions = [
         {
@@ -52,29 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
             correctAnswer: "Tokyo"
         }
     ];
-=======
-const btn = document.querySelector('.cs29-btn');
-const code = document.querySelector('.cs29-code');
-const input = document.querySelector('.cs29-input');
-const qr = document.querySelector('#qrcode');
-
-const qrcode = new QRCode("qrcode");
->>>>>>> 7df3f0a029b3656d565fca5f5e24e49364ab5e5e
 
     let currentQuestionIndex = 0;
     let score = 0;
 
-<<<<<<< HEAD
     const nextButton = document.querySelector(".cs29-next-button");
     const feedback = document.querySelector(".cs29-feedback");
     const resultContainer = document.querySelector(".cs29-result");
     const scoreDisplay = document.querySelector(".cs29-score");
-=======
-function generate() {
-	const data = input.value;
-	qrcode.makeCode(data);
-}
->>>>>>> 7df3f0a029b3656d565fca5f5e24e49364ab5e5e
 
     function loadQuestion() {
         const currentQuestion = questions[currentQuestionIndex];

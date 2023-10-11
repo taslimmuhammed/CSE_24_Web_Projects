@@ -11,9 +11,9 @@ A simple web application which will generate a QR Code.
 ![CSS](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)
 ![JS](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## Plugin Used
+## API Used
 
-Visit Website: https://davidshimjs.github.io/qrcodejs/
+Visit Website: https://goqr.me/api/
 
 ## How to use Project
 
